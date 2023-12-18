@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require("express");
+const primsaApplication = ('@prisma/')
 
 const PORT = process.env.PORT || 3001;
 
