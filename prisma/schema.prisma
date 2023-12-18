@@ -16,6 +16,7 @@ model Post {
   content   String?
   author    String
   authorId  Int
+  image String
 }
 
 model User {
