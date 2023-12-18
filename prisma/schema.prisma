@@ -13,10 +13,20 @@ model Post {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  title     String   @db.VarChar(255)
   content   String?
   author    String
   authorId  Int
   image String
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  content   String?
+  author    String
+  authorId  Int
 }
 
 model User {
