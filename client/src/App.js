@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import './Style.js';
 import ImageGallery from './ImageGallery';
-const dom = require('express-dom');
-
 function App() {
   const [data, setData] = React.useState([]);
 
