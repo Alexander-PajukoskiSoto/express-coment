@@ -13,12 +13,20 @@ function CommentComponent(){
         .then((data) => setData(data))
     }, []);
     const countDown = ()=>{
-        if(picCount > data.length)
-        setPicCount(picCount-1)
+        if(picCount > 1){
+            setPicCount(picCount-1)
+        }
+        else {
+            setPicCount(data.length)
+        }
     }
     const countUp = ()=>{
-        if(picCount < data.length)
-        setPicCount(picCount+1)
+        if(picCount < data.length){
+            setPicCount(picCount+1)
+        }
+        else{
+            setPicCount(1)
+        }
     }
     return(
         <div>
@@ -26,7 +34,7 @@ function CommentComponent(){
             <form method='post' action='/comment'>
                 <textarea id='content' name='content'>
                 </textarea>
-                <input type='number' defaultValue={picCount} value={picCount}></input>
+                <input type='number' max={3} min={1} defaultValue={picCount} value={picCount}></input>
                 <input type='submit' value='Comment'/>
             </form>
             <div className="countUpBTN" onClick={countUp}></div>
