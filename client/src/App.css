@@ -12,20 +12,45 @@
 .images{
   max-width: 75%;
   max-height: 75%;
+  display: none;
+}
+.shown{
+  display: block;
+}
+.hidden{
+  display: none;
+}
+/* Comments */
+.counterBTNs{
+  display: flex;
+  justify-content: center;
+  gap: 30%;
+}
+.countDownBTN, .countUpBTN{
+  width: 100px;
+  height: 100px;
+  box-shadow: 1px 1px 4px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px 0 2px 0;
+  user-select: none;
+  color: white;
 }
 
-/* Comments */
-.countDownBTN, .countUpBTN{
-  width: 50px;
-  height: 50px;
-}
 .countUpBTN{
   background-color: red;
 }.countDownBTN{
   background-color: blue;
 }
 
-
+.countUpBTN:hover{
+  background-color: rgb(153, 16, 16);
+}
+.countDownBTN:hover{
+  background-color: rgb(16, 0, 139);
+}
 
 /* STUFF I'M TOO SCARED TO REMOVE */
 .App {

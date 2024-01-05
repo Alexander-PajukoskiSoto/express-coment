@@ -1,44 +1,14 @@
 import React from "react";
-import { useEffect, useState } from "react";
-function CommentComponent(){
-    const [data, setData] = React.useState([]);
-    const [picCount, setPicCount] = React.useState(1);
-
-    useEffect(() => {
-      fetch("/api")
-        .then((res) => res.json())
-        // .then((data)=> data.forEach((element) => {
-        //   setData(data.title += element.title)
-        // }))
-        .then((data) => setData(data))
-    }, []);
-    const countDown = ()=>{
-        if(picCount > 1){
-            setPicCount(picCount-1)
-        }
-        else {
-            setPicCount(data.length)
-        }
-    }
-    const countUp = ()=>{
-        if(picCount < data.length){
-            setPicCount(picCount+1)
-        }
-        else{
-            setPicCount(1)
-        }
-    }
+function CommentComponent({picCount,countUp,countDown}){
     return(
         <div>
            
             <form method='post' action='/comment'>
                 <textarea id='content' name='content'>
                 </textarea>
-                <input type='number' max={3} min={1} defaultValue={picCount} value={picCount}></input>
+                <input type='number' value={picCount} id="postId" name="postID"readOnly></input>
                 <input type='submit' value='Comment'/>
             </form>
-            <div className="countUpBTN" onClick={countUp}></div>
-            <div className="countDownBTN" onClick={countDown}></div>
         </div>
     )
 }

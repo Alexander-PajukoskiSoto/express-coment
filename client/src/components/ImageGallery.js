@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const images = require.context('../images', true);
 const imageList = images.keys().map(image => images(image));
 
-function ImageGallery() {
+function ImageGallery({picCount,countDown,countUp}) {
   const [data, setData] = React.useState([]);
 
   useEffect(() => {
@@ -14,12 +14,23 @@ function ImageGallery() {
       // }))
       .then((data) => setData(data))
   }, []);
-  console.log(data) ;
+  let showing = 0;
   return (
-    <div id='imageDiv'>
-      {imageList.map((image, index) => (
-        <img key={index} src={imageList[index]} className={`images image${index+1}`} alt={`image-${index}`} />
-      ))}
+    <div>
+      <div className='counterBTNs'>
+      <div className="countDownBTN" onClick={countDown}>Previous Image</div>
+
+        <div className="countUpBTN" onClick={countUp}>Next Image</div>
+      </div>
+      <div id='imageDiv'>
+        {imageList.map((image, index) => (
+          <img 
+          key={index} 
+          src={imageList[index]} 
+          className={`images image${index+1} ${(index+1) === picCount ? 'shown':'hidden' }`} 
+          alt={`image-${index+1}`} />
+        ))}
+      </div>
     </div>
   );
 }

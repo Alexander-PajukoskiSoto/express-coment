@@ -16,6 +16,24 @@ function App() {
       // }))
       .then((data) => setData(data))
   }, []);
+  const [picCount, setPicCount] = useState(1);
+
+  function countDown() {
+      if(picCount > 1){
+          setPicCount(picCount-1)
+      }
+      else {
+          setPicCount(data.length)
+      }
+  }
+  function countUp () {
+      if(picCount < data.length){
+          setPicCount(picCount+1)
+      }
+      else{
+          setPicCount(1)
+      }
+  }
   return (
     <div className="App">
         <div>
@@ -23,10 +41,10 @@ function App() {
           <span key={index}>{element.title}</span>
         ))}
         </div>
-        <ImageGallery/>
+        <ImageGallery picCount={picCount} data = {data} countDown={countDown} countUp={countUp}  />
         <CreateUser />
         <Login />
-        <CommentComponent />
+        <CommentComponent picCount={picCount} countDown={countDown} countUp={countUp} />
     </div>
   );
 }

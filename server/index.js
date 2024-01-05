@@ -33,17 +33,15 @@ app.post('/login',async(req,res)=>{
 
   const user = await prisma.User.findFirst({
     where: {
-      OR:[{
-        name: req.body.username},
+      OR:[
+        {name: req.body.username},
       ]
 
   }})
-    if(req.body.username == '')
-    {
-      res.redirect('/')
-    }else if(req.body.password ==  user.password ){
+  if(req.body.password ==  user.password ){
       console.log('successfully logged in')
       req.session.authenticated = true;
+      req.session.userId=user.id;
       res.redirect('/')
       console.log(req.session)
     }
@@ -53,7 +51,7 @@ app.post('/login',async(req,res)=>{
 })
 
 app.post('/comment', async(req, res)=>{
-  console.log(req.body.content);
+  console.log(req.body);
   res.redirect('/')
 })
 app.post('/createUser', async(req, res)=>{

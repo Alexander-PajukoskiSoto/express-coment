@@ -17,7 +17,7 @@ model Post {
   content   String?
   author    String
   authorId  Int
-  image String
+  image     String
 }
 
 model Comment {
@@ -27,6 +27,7 @@ model Comment {
   content   String?
   author    String
   authorId  Int
+  postId    Int
 }
 
 model User {
