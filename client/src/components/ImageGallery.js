@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import DataComponent from './DataComponent';
 const images = require.context('../images', true);
 const imageList = images.keys().map(image => images(image));
 
