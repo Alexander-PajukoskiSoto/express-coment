@@ -1,6 +1,6 @@
 import React from 'react';
 
-const images = require.context('./images', true);
+const images = require.context('../images', true);
 const imageList = images.keys().map(image => images(image));
 
 function ImageGallery() {

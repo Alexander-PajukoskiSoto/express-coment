@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import './Style.js';
-import ImageGallery from './ImageGallery';
+import ImageGallery from './components/ImageGallery.js';
+import Login from './components/LoginComponent.js';
+import CreateUser from './components/CreateUserComponent.js';
 function App() {
   const [data, setData] = React.useState([]);
 
@@ -21,22 +23,8 @@ function App() {
         ))}
         </div>
         <ImageGallery/>
-        <form method='post' action='/createUser'>
-            <input type='text' id='createUsername' name='createUsername' placeholder='Username'>
-            </input>
-            <input type='text' id='email' name='email' placeholder='email'>
-            </input>
-            <input type='password' id='createPassword' name='createPassword' placeholder='password'>
-            </input>
-            <input type='submit' value='Create user'/>
-        </form>
-        <form method='post' action='/login'>
-            <input type='text' id='username' name='username' placeholder='Username'>
-            </input>
-            <input type='password' id='password' name='password' placeholder='password'>
-            </input>
-            <input type='submit' value='Login'/>
-        </form>
+        <CreateUser />
+        <Login />
         <form method='post' action='/comment'>
             <textarea id='content' name='content'>
             </textarea>
