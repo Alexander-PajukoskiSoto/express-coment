@@ -4,6 +4,7 @@ import './Style.js';
 import ImageGallery from './components/ImageGallery.js';
 import Login from './components/LoginComponent.js';
 import CreateUser from './components/CreateUserComponent.js';
+import CommentComponent from './components/CommentComponent.js';
 function App() {
   const [data, setData] = React.useState([]);
 
@@ -25,12 +26,7 @@ function App() {
         <ImageGallery/>
         <CreateUser />
         <Login />
-        <form method='post' action='/comment'>
-            <textarea id='content' name='content'>
-            </textarea>
-            <input type='number' min={1} max={data.length} defaultValue={1}></input>
-            <input type='submit' value='Comment'/>
-        </form>
+        <CommentComponent />
     </div>
   );
 }

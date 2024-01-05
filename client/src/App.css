@@ -1,31 +1,36 @@
+/* Images */
+
 #imageDiv{
   position: relative;
   height: 80dvh;
   background-color: red;
   display: flex;
   gap: 200px;
-  width: 300%;
   align-items: center;
 }
+
 .images{
-  max-width: 50%;
+  max-width: 75%;
   max-height: 75%;
 }
+
+/* Comments */
+.countDownBTN, .countUpBTN{
+  width: 50px;
+  height: 50px;
+}
+.countUpBTN{
+  background-color: red;
+}.countDownBTN{
+  background-color: blue;
+}
+
+
+
+/* STUFF I'M TOO SCARED TO REMOVE */
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -41,11 +46,3 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
