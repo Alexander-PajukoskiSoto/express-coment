@@ -5,6 +5,7 @@ import ImageGallery from './components/ImageGallery.js';
 import Login from './components/LoginComponent.js';
 import CreateUser from './components/CreateUserComponent.js';
 import CommentComponent from './components/CommentComponent.js';
+import ShowComments from './components/ShowComments.js';
 function App() {
   const [data, setData] = React.useState([]);//Posts (too far in to rename)
   const [userData, setUserData] = React.useState([]);
@@ -54,10 +55,11 @@ console.log(userData,commentData,data, sessionData)
   }
   return (
     <div className="App">
-        <ImageGallery picCount={picCount} data = {data} countDown={countDown} countUp={countUp}  />
+        <ImageGallery picCount={picCount} data = {data} countDown={countDown} countUp={countUp} commentData={commentData} />
+        <ShowComments commentData={commentData} userData={userData} picCount={picCount}/>
         <CreateUser sessionData={sessionData}/>
         <Login sessionData={sessionData}/>
-        <CommentComponent picCount={picCount} countDown={countDown} countUp={countUp} />
+        <CommentComponent picCount={picCount} />
     </div>
   );
 }

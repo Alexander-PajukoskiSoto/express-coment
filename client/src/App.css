@@ -2,7 +2,7 @@
 body{
   background-color: rgb(10, 20, 41);
 }
-h1{
+h1, p{
   color: white;
 }
 #imageDiv{
@@ -52,6 +52,29 @@ form>input, form>textarea{
   color: rgb(218, 217, 217);
 }
 
+.showCommentContainer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.indvComments{
+  margin: 2px 0 2px 0;
+  width: 60%;
+  background-color: #2d535e;
+  border-radius: 2px;
+}
+.indvComments>div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #367687;
+  padding: 20px;
+}
+.pfp{
+  border-radius: 200px;
+  width: 80px;
+  height: 80px;
+}
 /* STUFF I'M TOO SCARED TO REMOVE */
 .App {
   text-align: center;
