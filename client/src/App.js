@@ -54,14 +54,9 @@ console.log(userData,commentData,data, sessionData)
   }
   return (
     <div className="App">
-        <div>
-          {data.map((element, index) => (
-          <span key={index}>{element.title}</span>
-        ))}
-        </div>
         <ImageGallery picCount={picCount} data = {data} countDown={countDown} countUp={countUp}  />
-        <CreateUser />
-        <Login />
+        <CreateUser sessionData={sessionData}/>
+        <Login sessionData={sessionData}/>
         <CommentComponent picCount={picCount} countDown={countDown} countUp={countUp} />
     </div>
   );

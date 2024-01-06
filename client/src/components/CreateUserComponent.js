@@ -1,8 +1,8 @@
 import React from "react";
 
-function CreateUserComponent(){
+function CreateUserComponent(sessionData){
     return(
-        <form method='post' action='/createUser'>
+        <form method='post' action='/createUser' className={`${sessionData.sessionData.authenticated === true ? 'hidden':'shown'}`}>
             <input type='text' id='createUsername' name='createUsername' placeholder='Username'>
             </input>
             <input type='text' id='email' name='email' placeholder='email'>

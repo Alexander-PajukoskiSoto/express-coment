@@ -1,19 +1,30 @@
 /* Images */
-
+body{
+  background-color: rgb(10, 20, 41);
+}
+h1{
+  color: white;
+}
 #imageDiv{
   position: relative;
-  height: 80dvh;
-  background-color: red;
+  height: 70dvh;
   display: flex;
-  gap: 200px;
   align-items: center;
-  justify-content: center ;
+  justify-content: space-evenly ;
+  width: 100%;
+}
+form>input, form>textarea{
+  background-color: #282c34;
+  border: solid #003f6f 1px ;
+  margin: 5px;
+  color: white;
 }
 
 .images{
-  max-width: 75%;
-  max-height: 75%;
+  width: 50%;
+  max-height: 95%;
   display: none;
+  border-radius: 2px;
 }
 .shown{
   display: block;
@@ -22,15 +33,10 @@
   display: none;
 }
 /* Comments */
-.counterBTNs{
-  display: flex;
-  justify-content: center;
-  gap: 30%;
-}
 .countDownBTN, .countUpBTN{
   width: 100px;
   height: 100px;
-  box-shadow: 1px 1px 4px;
+  box-shadow: 1px 1px 4px rgb(0, 157, 255);
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -38,19 +44,12 @@
   margin: 2px 0 2px 0;
   user-select: none;
   color: white;
-}
+  background-color: rgb(0, 157, 255);
 
-.countUpBTN{
-  background-color: red;
-}.countDownBTN{
-  background-color: blue;
 }
-
-.countUpBTN:hover{
-  background-color: rgb(153, 16, 16);
-}
-.countDownBTN:hover{
-  background-color: rgb(16, 0, 139);
+.countDownBTN:hover,.countUpBTN:hover{
+  background-color: rgb(2, 139, 224);
+  color: rgb(218, 217, 217);
 }
 
 /* STUFF I'M TOO SCARED TO REMOVE */

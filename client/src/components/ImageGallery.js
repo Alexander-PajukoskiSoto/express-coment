@@ -3,26 +3,19 @@ import { useState, useEffect } from 'react';
 const images = require.context('../images', true);
 const imageList = images.keys().map(image => images(image));
 
-function ImageGallery({picCount,countDown,countUp}) {
-  const [data, setData] = React.useState([]);
+function ImageGallery({picCount,countDown,countUp,data}) {
 
-  useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      // .then((data)=> data.forEach((element) => {
-      //   setData(data.title += element.title)
-      // }))
-      .then((data) => setData(data))
-  }, []);
   let showing = 0;
   return (
     <div>
-      <div className='counterBTNs'>
-      <div className="countDownBTN" onClick={countDown}>Previous Image</div>
-
-        <div className="countUpBTN" onClick={countUp}>Next Image</div>
-      </div>
+      {data.map((element, index) => (
+          <h1 key={index} className={`${(index+1)===picCount?'shown':'hidden'}`}>{element.title}</h1>
+        ))}
+        {data.map((element, index) => (
+          <h1 key={index} className={`${(index+1)===picCount?'shown':'hidden'}`}>{element.title}</h1>
+        ))}
       <div id='imageDiv'>
+      <div className="countDownBTN" onClick={countDown}>Previous Image</div>
         {imageList.map((image, index) => (
           <img 
           key={index} 
@@ -30,6 +23,8 @@ function ImageGallery({picCount,countDown,countUp}) {
           className={`images image${index+1} ${(index+1) === picCount ? 'shown':'hidden' }`} 
           alt={`image-${index+1}`} />
         ))}
+        <div className="countUpBTN" onClick={countUp}>Next Image</div>
+
       </div>
     </div>
   );
