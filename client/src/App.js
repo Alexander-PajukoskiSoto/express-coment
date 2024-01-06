@@ -34,7 +34,6 @@ function App() {
       .then((res) => res.json())
       .then((sessionData) => setSessionData(sessionData))
   }, []);
-console.log(userData,commentData,data, sessionData)
 
   const [picCount, setPicCount] = useState(1);
   function countDown() {

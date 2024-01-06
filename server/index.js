@@ -56,7 +56,6 @@ app.post('/login',async(req,res)=>{
       req.session.userId=user.id;
       req.session.user = user.name;
       res.redirect('/')
-      console.log(req.session)
     }
     else{
       res.redirect('/')
@@ -64,7 +63,6 @@ app.post('/login',async(req,res)=>{
 })
 
 app.post('/comment', async(req, res)=>{
-  console.log(req.body);
   const comment = await prisma.Comment.create({
     data:{
       content: req.body.content,
