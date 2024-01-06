@@ -6,7 +6,7 @@ function CommentComponent({picCount,countUp,countDown}){
             <form method='post' action='/comment'>
                 <textarea id='content' name='content'>
                 </textarea>
-                <input type='number' value={picCount} id="postId" name="postID"readOnly></input>
+                <input type='number' value={picCount} id="postId" name="postId" readOnly></input>
                 <input type='submit' value='Comment'/>
             </form>
         </div>

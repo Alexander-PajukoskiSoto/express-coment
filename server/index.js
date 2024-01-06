@@ -29,6 +29,18 @@ app.get("/api", async(req, res) => {
   const posts = await prisma.Post.findMany()
   res.json(posts)
 });
+app.get("/userApi", async(req, res) => {
+  const users = await prisma.User.findMany()
+  res.json(users)
+});
+app.get("/commentApi", async(req, res) => {
+  const comments = await prisma.Comment.findMany()
+  res.json(comments)
+});
+app.get("/sessionApi", async(req, res) => {
+  const session = req.session
+  res.json(session)
+});
 app.post('/login',async(req,res)=>{
 
   const user = await prisma.User.findFirst({
@@ -42,6 +54,7 @@ app.post('/login',async(req,res)=>{
       console.log('successfully logged in')
       req.session.authenticated = true;
       req.session.userId=user.id;
+      req.session.user = user.name;
       res.redirect('/')
       console.log(req.session)
     }
@@ -52,6 +65,14 @@ app.post('/login',async(req,res)=>{
 
 app.post('/comment', async(req, res)=>{
   console.log(req.body);
+  const comment = await prisma.Comment.create({
+    data:{
+      content: req.body.content,
+      postId: Number(req.body.postId),
+      author: req.session.user,
+      authorId: req.session.userId
+    }
+  })
   res.redirect('/')
 })
 app.post('/createUser', async(req, res)=>{

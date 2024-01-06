@@ -6,18 +6,36 @@ import Login from './components/LoginComponent.js';
 import CreateUser from './components/CreateUserComponent.js';
 import CommentComponent from './components/CommentComponent.js';
 function App() {
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState([]);//Posts (too far in to rename)
+  const [userData, setUserData] = React.useState([]);
+  const [commentData, setCommentData] = React.useState([]);
+  const [sessionData, setSessionData] = React.useState([]);
 
   useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
-      // .then((data)=> data.forEach((element) => {
-      //   setData(data.title += element.title)
-      // }))
       .then((data) => setData(data))
   }, []);
-  const [picCount, setPicCount] = useState(1);
 
+  useEffect(() => {
+    fetch("/userApi")
+      .then((res) => res.json())
+      .then((userData) => setUserData(userData))
+  }, []);
+
+  useEffect(() => {
+    fetch("/commentApi")
+      .then((res) => res.json())
+      .then((commentData) => setCommentData(commentData))
+  }, []);
+  useEffect(() => {
+    fetch("/sessionApi")
+      .then((res) => res.json())
+      .then((sessionData) => setSessionData(sessionData))
+  }, []);
+console.log(userData,commentData,data, sessionData)
+
+  const [picCount, setPicCount] = useState(1);
   function countDown() {
       if(picCount > 1){
           setPicCount(picCount-1)
