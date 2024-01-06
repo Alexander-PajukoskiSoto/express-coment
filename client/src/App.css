@@ -77,8 +77,17 @@ form>input, form>textarea{
 }
 .commentField{
   resize: none;
-  
+  display: none;
+  width: 45%;
+  height: 150px;
 }
+.authtrue{
+  display: inline;
+}
+.submitComment{
+  padding: 20px;
+}
+
 /* Uh, oh! Secret :eyes: */
 
 .secretInput{

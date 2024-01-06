@@ -52,13 +52,14 @@ function App() {
           setPicCount(1)
       }
   }
+  console.log(sessionData)
   return (
     <div className="App">
         <ImageGallery picCount={picCount} data = {data} countDown={countDown} countUp={countUp} commentData={commentData} />
         <ShowComments commentData={commentData} userData={userData} picCount={picCount}/>
         <CreateUser sessionData={sessionData}/>
         <Login sessionData={sessionData}/>
-        <CommentComponent picCount={picCount} />
+        <CommentComponent picCount={picCount} sessionData={sessionData} />
     </div>
   );
 }

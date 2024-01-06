@@ -7,10 +7,10 @@ function ShowComments({commentData, userData,picCount}){
         <div className="showCommentContainer">
             <img/>
             {commentData.map((element, index) => (
-                <div className={`indvComments ${[commentData[element.postId].postId +1] == picCount ? 'shown':'hidden'}`} key={index}>
+                <div className={`indvComments ${(element.postId) == picCount ? 'shown':'hidden'}`} key={index}>
                     <div>
-                        <img src={imageList[commentData[element.authorId].authorId-1]} className="pfp" width={50}/>
-                        <p>{[commentData[element.authorId].author]} <span>{[commentData[element.authorId].createdAt]}</span></p>
+                        <img src={imageList[element.authorId-1]} className="pfp" width={50}/>
+                        <p>{commentData[element.authorId].author} <span>{commentData[element.authorId].createdAt}</span></p>
                     </div>
                     <p className={`comment${index+1}`}>{element.content}</p>
                 </div>

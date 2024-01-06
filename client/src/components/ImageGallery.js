@@ -9,7 +9,7 @@ function ImageGallery({picCount,countDown,countUp,data,commentData}) {
   return (
     <div>
       {data.map((element, index) => (
-          <h1 key={index} className={`${(index+1)===picCount?'shown':'hidden'}`}>{element.title}</h1>
+          <h1 key={index} className={`${(index)===picCount-1?'shown':'hidden'}`}>{element.title}</h1>
         ))}
         
       <div id='imageDiv'>
@@ -18,8 +18,8 @@ function ImageGallery({picCount,countDown,countUp,data,commentData}) {
           <img 
           key={index} 
           src={imageList[index]} 
-          className={`images image${index+1} ${(index+1) === picCount ? 'shown':'hidden' }`} 
-          alt={`image-${index+1}`} />
+          className={`images image${index} ${(index) === picCount-1 ? 'shown':'hidden' }`} 
+          alt={`image-${index}`} />
         ))}
         <div className="countUpBTN" onClick={countUp}>Next Image</div>
 
