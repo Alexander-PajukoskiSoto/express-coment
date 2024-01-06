@@ -2,7 +2,7 @@ import React from "react";
 
 function CreateUserComponent(sessionData){
     return(
-        <form method='post' action='/createUser' className={'hidden'}>
+        <form method='post' action='/createUser' className='secretInput'>
             <input type='text' id='createUsername' name='createUsername' placeholder='Username'>
             </input>
             <input type='text' id='email' name='email' placeholder='email'>
